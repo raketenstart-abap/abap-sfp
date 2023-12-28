@@ -1,10 +1,10 @@
-CLASS zcl_core_ssf_wrap DEFINITION
+CLASS zcl_ssf_wrap DEFINITION
   PUBLIC
   CREATE PUBLIC .
 
   PUBLIC SECTION.
 
-    INTERFACES zif_core_ssf_wrap .
+    INTERFACES zif_ssf_wrap .
 
     CONSTANTS sc_destination TYPE rspopname VALUE 'LP01' ##NO_TEXT.
     CONSTANTS yes TYPE abap_bool VALUE 'X' ##NO_TEXT.
@@ -15,10 +15,10 @@ ENDCLASS.
 
 
 
-CLASS ZCL_CORE_SSF_WRAP IMPLEMENTATION.
+CLASS ZCL_SSF_WRAP IMPLEMENTATION.
 
 
-  METHOD zif_core_ssf_wrap~ssf_function_module_name.
+  METHOD zif_ssf_wrap~ssf_function_module_name.
 
     CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
       EXPORTING
@@ -35,23 +35,23 @@ CLASS ZCL_CORE_SSF_WRAP IMPLEMENTATION.
         RETURN.
 
       WHEN 1.
-        RAISE EXCEPTION TYPE zcx_core_ssf_wrap
+        RAISE EXCEPTION TYPE zcx_ssf_wrap
           EXPORTING
-            textid = zcx_core_ssf_wrap=>form_not_found.
+            textid = zcx_ssf_wrap=>form_not_found.
 
       WHEN 2.
-        RAISE EXCEPTION TYPE zcx_core_ssf_wrap
+        RAISE EXCEPTION TYPE zcx_ssf_wrap
           EXPORTING
-            textid = zcx_core_ssf_wrap=>function_module_not_found.
+            textid = zcx_ssf_wrap=>function_module_not_found.
 
       WHEN OTHERS.
-        RAISE EXCEPTION TYPE zcx_core_ssf_wrap.
+        RAISE EXCEPTION TYPE zcx_ssf_wrap.
     ENDCASE.
 
   ENDMETHOD.
 
 
-  METHOD zif_core_ssf_wrap~ssf_get_device_type.
+  METHOD zif_ssf_wrap~ssf_get_device_type.
 
     CALL FUNCTION 'SSF_GET_DEVICE_TYPE'
       EXPORTING
@@ -69,18 +69,18 @@ CLASS ZCL_CORE_SSF_WRAP IMPLEMENTATION.
     CASE sy-subrc.
       WHEN 1
         OR 2.
-        RAISE EXCEPTION TYPE zcx_core_ssf_wrap
+        RAISE EXCEPTION TYPE zcx_ssf_wrap
           EXPORTING
-            textid      = zcx_core_ssf_wrap=>language_not_accepted
+            textid      = zcx_ssf_wrap=>language_not_accepted
             mv_language = sy-langu.
       WHEN 3.
-        RAISE EXCEPTION TYPE zcx_core_ssf_wrap
+        RAISE EXCEPTION TYPE zcx_ssf_wrap
           EXPORTING
-            textid = zcx_core_ssf_wrap=>device_not_found.
+            textid = zcx_ssf_wrap=>device_not_found.
       WHEN 4.
-        RAISE EXCEPTION TYPE zcx_core_ssf_wrap
+        RAISE EXCEPTION TYPE zcx_ssf_wrap
           EXPORTING
-            textid = zcx_core_ssf_wrap=>system_error.
+            textid = zcx_ssf_wrap=>system_error.
     ENDCASE.
 
   ENDMETHOD.

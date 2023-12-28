@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_SFP_WRAP</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>ABAP SFP: Form Builder Wrapper Interface</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>FP_FUNCTION_MODULE_CALL</CMPNAME>
+     <SCONAME>IS_DOCPARAMS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Form Parameters for Form Processing</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FP_FUNCTION_MODULE_CALL</CMPNAME>
+     <SCONAME>IV_FORM_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Function name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FP_FUNCTION_MODULE_CALL</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Form Output (PDF, PDL)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FP_FUNCTION_MODULE_CALL</CMPNAME>
+     <SCONAME>ZCX_SFP_WRAP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP SFP: SFP Wrapper Exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FP_FUNCTION_MODULE_NAME</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP SFP: &quot;SFP_FUNCTION_MODULE_NAME&quot; wrapper</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

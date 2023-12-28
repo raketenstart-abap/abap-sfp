@@ -1,4 +1,4 @@
-INTERFACE zif_core_ssf_wrap
+INTERFACE zif_ssf_wrap
   PUBLIC .
 
 
@@ -9,12 +9,12 @@ INTERFACE zif_core_ssf_wrap
     RETURNING
       VALUE(result)   TYPE rspoptype
     RAISING
-      zcx_core_ssf_wrap .
+      zcx_ssf_wrap .
   METHODS ssf_function_module_name
     IMPORTING
       !iv_form_name TYPE tdsfname
     RETURNING
       VALUE(result) TYPE rs38l_fnam
     RAISING
-      zcx_core_ssf_wrap .
+      zcx_ssf_wrap .
 ENDINTERFACE.

@@ -3,63 +3,58 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <T100A>
-    <ARBGB>ZCORE_SFP</ARBGB>
+    <ARBGB>Z_ABAP_SFP</ARBGB>
     <MASTERLANG>E</MASTERLANG>
-    <STEXT>SFP messages</STEXT>
+    <STEXT>ABAP SFP: Messages</STEXT>
    </T100A>
    <T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>000</MSGNR>
      <TEXT>O formulários &amp;1 não foi encontrado. Verifique e tente novamente.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>001</MSGNR>
      <TEXT>Houve uma falha ao iniciar o job de impressão.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>002</MSGNR>
      <TEXT>Houve uma falha ao encerrar o job de impressão.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>003</MSGNR>
      <TEXT>Idioma &amp;1 não está disponível para uso.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>004</MSGNR>
      <TEXT>Nenhum dispositivo de impressão disponível no momento.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>005</MSGNR>
      <TEXT>Um erro inesperado aconteceu ao selecionar um dispositivo de impressão.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>006</MSGNR>
      <TEXT>O formulario &amp;1 nao foi encontrado. Verifique e tente novamente.</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
      <MSGNR>007</MSGNR>
      <TEXT>Nenhum módulo de função encontrado para o formulário &amp;1.</TEXT>
-    </T100>
-    <T100>
-     <SPRSL>E</SPRSL>
-     <ARBGB>ZCORE_SFP</ARBGB>
-     <MSGNR>999</MSGNR>
     </T100>
    </T100>
   </asx:values>
