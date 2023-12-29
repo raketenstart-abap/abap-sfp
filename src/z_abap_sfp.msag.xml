@@ -56,6 +56,24 @@
      <MSGNR>007</MSGNR>
      <TEXT>Nenhum módulo de função encontrado para o formulário &amp;1.</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Erro ao acessar o repositório: &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Erro ao consumir o repositório: &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_ABAP_SFP</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Erro interno no repositório: &amp;1.</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

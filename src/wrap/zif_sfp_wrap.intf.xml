@@ -41,6 +41,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>ABAP SFP: &quot;SFP_FUNCTION_MODULE_NAME&quot; wrapper</DESCRIPT>
     </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FP_FUNCTION_MODULE_NAME</CMPNAME>
+     <SCONAME>ZCX_SFP_WRAP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP SFP: Form Wrapper Exception</DESCRIPT>
+    </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>

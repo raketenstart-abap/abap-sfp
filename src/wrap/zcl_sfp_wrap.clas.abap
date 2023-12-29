@@ -5,6 +5,8 @@ CLASS zcl_sfp_wrap DEFINITION
   PUBLIC SECTION.
 
     INTERFACES zif_sfp_wrap .
+
+    DATA mv_message TYPE string .
   PROTECTED SECTION.
   PRIVATE SECTION.
 
@@ -65,12 +67,13 @@ CLASS ZCL_SFP_WRAP IMPLEMENTATION.
 
     IF sy-subrc <> 0.
       DATA(ls_bapiret) = zcl_core_bapiret_utils=>build_bapiret_from_syst( ).
-      DATA(lv_message) = ls_bapiret-message.
+      DATA(lv_message) = CONV string( ls_bapiret-message ).
 
       RAISE EXCEPTION TYPE zcx_sfp_wrap
         EXPORTING
           textid       = zcx_sfp_wrap=>form_not_found
-          mv_form_name = iv_form_name.
+          mv_form_name = iv_form_name
+          mv_message   = lv_message.
     ENDIF.
 
   ENDMETHOD.
@@ -78,25 +81,42 @@ CLASS ZCL_SFP_WRAP IMPLEMENTATION.
 
   METHOD zif_sfp_wrap~fp_function_module_name.
 
-    CALL FUNCTION 'FP_FUNCTION_MODULE_NAME'
-      EXPORTING
-        i_name               = iv_form_name
-      IMPORTING
-        e_funcname           = result-function_name
-        e_interface_type     = result-interface_type
-        ev_funcname_inbound  = result-function_name_inbound
-      EXCEPTIONS
-        cx_fp_api_repository = 1
-        cx_fp_api_usage      = 2
-        cx_fp_api_internal   = 3
-        OTHERS               = 4.
+    DATA lx_fp_api_repository TYPE REF TO cx_fp_api_repository.
+    DATA lx_fp_api_usage      TYPE REF TO cx_fp_api_usage.
+    DATA lx_fp_api_internal   TYPE REF TO cx_fp_api_internal.
 
-    IF result IS INITIAL.
-      RAISE EXCEPTION TYPE zcx_sfp_wrap
-        EXPORTING
-          textid       = zcx_sfp_wrap=>form_not_found
-          mv_form_name = iv_form_name.
-    ENDIF.
+    TRY.
+        CALL FUNCTION 'FP_FUNCTION_MODULE_NAME' ##EXCEPT_TRY ##ARG_OK
+          EXPORTING
+            i_name               = iv_form_name
+          IMPORTING
+            e_funcname           = result-function_name
+            e_interface_type     = result-interface_type
+            ev_funcname_inbound  = result-function_name_inbound
+          EXCEPTIONS  ##FM_SUBRC_OK
+            cx_fp_api_repository = 1
+            cx_fp_api_usage      = 2
+            cx_fp_api_internal   = 3
+            OTHERS               = 4.
+
+      CATCH cx_fp_api_repository INTO lx_fp_api_repository.
+        RAISE EXCEPTION TYPE zcx_sfp_wrap
+          EXPORTING
+            textid     = zcx_sfp_wrap=>api_repository_not_reached
+            mv_message = lx_fp_api_repository->get_text( ).
+
+      CATCH cx_fp_api_usage      INTO lx_fp_api_usage.
+        RAISE EXCEPTION TYPE zcx_sfp_wrap
+          EXPORTING
+            textid     = zcx_sfp_wrap=>api_repository_usage_error
+            mv_message = lx_fp_api_usage->get_text( ).
+
+      CATCH cx_fp_api_internal   INTO lx_fp_api_internal.
+        RAISE EXCEPTION TYPE zcx_sfp_wrap
+          EXPORTING
+            textid     = zcx_sfp_wrap=>api_repository_internal_error
+            mv_message = lx_fp_api_internal->get_text( ).
+    ENDTRY.
 
   ENDMETHOD.
 

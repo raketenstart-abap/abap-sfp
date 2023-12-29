@@ -10,16 +10,18 @@ CLASS zcl_sfp_print DEFINITION
       IMPORTING
         !io_sfp_wrap TYPE REF TO zif_sfp_wrap OPTIONAL .
   PROTECTED SECTION.
-  PRIVATE SECTION.
+private section.
 
-    DATA mo_sfp_wrap TYPE REF TO zif_sfp_wrap .
+  data MO_SFP_WRAP type ref to ZIF_SFP_WRAP .
 
-    METHODS call
-      IMPORTING
-        !form_name    TYPE funcname
-        !docparams    TYPE sfpdocparams OPTIONAL
-      RETURNING
-        VALUE(result) TYPE fpformoutput .
+  methods CALL
+    importing
+      !FORM_NAME type FUNCNAME
+      !DOCPARAMS type SFPDOCPARAMS optional
+    returning
+      value(RESULT) type FPFORMOUTPUT
+    raising
+      ZCX_SFP_WRAP .
 ENDCLASS.
 
 
@@ -29,13 +31,10 @@ CLASS ZCL_SFP_PRINT IMPLEMENTATION.
 
   METHOD call.
 
-    TRY.
-        result = mo_sfp_wrap->fp_function_module_call(
-          iv_form_name = form_name
-          is_docparams = docparams
-        ).
-      CATCH zcx_sfp_wrap ##NO_HANDLER.
-    ENDTRY.
+    result = mo_sfp_wrap->fp_function_module_call(
+      iv_form_name = form_name
+      is_docparams = docparams
+    ).
 
   ENDMETHOD.
 

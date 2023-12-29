@@ -30,6 +30,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>Form Output (PDF, PDL)</DESCRIPT>
     </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALL</CMPNAME>
+     <SCONAME>ZCX_SFP_WRAP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP SFP: Form Wrapper Exception</DESCRIPT>
+    </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>

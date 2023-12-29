@@ -15,12 +15,11 @@ CLASS lcl DEFINITION
 
     METHODS
       execute
-        RETURNING VALUE(result) TYPE REF TO zca_file
         RAISING zcx_root.
 
     METHODS
       preview
-      RAISING zcx_root.
+        RAISING zcx_root.
 
   PRIVATE SECTION.
     DATA mo_sfp_print TYPE REF TO zif_sfp_print.
@@ -33,16 +32,25 @@ ENDCLASS.
 
 CLASS lcl IMPLEMENTATION.
   METHOD execute.
-    DATA(lo_print_format) = mo_sfp_print->execute(
-      function_name = 'ZFAF_TEST_PDF'
-    ).
-    result = lo_print_format->converter( )->to_pdf( space ).
+
+    TRY.
+        DATA(lo_print_format) = mo_sfp_print->execute( function_name = 'ZFAF_TEST_PDF' ).
+
+        lo_print_format->converter( )->to_pdf( )->downloader( )->local( ).
+
+      CATCH zcx_root INTO DATA(lx_root).
+        lx_root->raise_message( ).
+    ENDTRY.
+
   ENDMETHOD.
 
   METHOD preview.
-    mo_sfp_print->preview(
-      function_name = 'ZFAF_TEST_PDF'
-    ).
+    TRY.
+        mo_sfp_print->preview( function_name = 'ZFAF_TEST_PDF' ).
+
+      CATCH zcx_root INTO DATA(lx_root).
+        lx_root->raise_message( ).
+    ENDTRY.
   ENDMETHOD.
 
   METHOD get_instance.
@@ -55,11 +63,11 @@ CLASS lcl IMPLEMENTATION.
     ELSE.
       CREATE OBJECT mo_sfp_print TYPE zcl_sfp_print.
     ENDIF.
-
   ENDMETHOD.
 ENDCLASS.
 
 START-OF-SELECTION.
-  lcl=>get_instance( )->execute( )->downloader( )->local( ).
-
+  " execute and download
+  lcl=>get_instance( )->execute( ).
+  " preview
   lcl=>get_instance( )->preview( ).
